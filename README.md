@@ -9,4 +9,4 @@ Link is provided https://drive.google.com/drive/folders/1Joz1wYHVZACNwetYwQ0zdW5
 
 # Note
 ### * create folder name "files" inside "src" folder and pest above files in it.
-### * You can change admin password on line no : 
+### * You can change admin password on line no : 149 or 152
