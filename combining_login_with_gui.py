@@ -65,21 +65,12 @@ class LoginScreen(QDialog):
         widget.setCurrentIndex(widget.currentIndex()+1)
 
     def checkIfAdmin(self):
-        # msg = QMessageBox()
-        # msg.setWindowTitle("Successs")
-        # msg.setText("Are YOu an admin ?`")
-        # x = msg.exec_()
-
         passdlg = AdminLoginDialog()
         if(passdlg.exec_() == QDialog.Accepted):
             window = AdminScreen()
             # window.show()
             widget.addWidget(window)
             widget.setCurrentIndex(widget.currentIndex()+1)
-
-        # Uiform = AdminScreen()
-        # widget.addWidget(Uiform)
-        # widget.setCurrentIndex(widget.currentIndex()+1)
 
     def loginfunction(self):
         global G_username
@@ -122,7 +113,6 @@ class LoginScreen(QDialog):
                     Uiform = ImageLoading()
                     widget.addWidget(Uiform)
                     widget.setCurrentIndex(widget.currentIndex()+1)
-
             except:
                 self.error.setText("Invalid username or password")
 
@@ -157,11 +147,10 @@ class AdminLoginDialog(QDialog):
     def login(self):
         global G_admin
         if(self.passinput.text() == "#123"):
-            G_admin = "Shabbir"
+            G_admin = "Admin 1"
             self.accept()
-
         elif(self.passinput.text() == "#1234"):
-            G_admin = "Anil"
+            G_admin = "Admin 2"
             self.accept()
         else:
             QMessageBox.warning(self, 'Error', 'Wrong Password')
@@ -201,7 +190,6 @@ class AdminScreen(QDialog):
                     continue
                 else:
                     lines.append(row)
-
         with open("./src/csv/"+current_csv_file+".csv", 'w') as writeFile:
             writer = csv.writer(writeFile)
             writer.writerows(lines)
@@ -361,7 +349,7 @@ class ImageLoading(QWidget):
         widget.addWidget(welcome)
         widget.setCurrentIndex(widget.currentIndex()+1)
         self.clearImage()
-
+        
     def clearImage(self):
         global G_image, filename_with_exttention, saveImage, Global_image
         G_image, saveImage, filename_with_exttention, Global_image = None, None, None, None
@@ -373,17 +361,12 @@ class ImageLoading(QWidget):
 
     def openFile(self):
         global G_image, Global_image, G_MainImage, filename_with_exttention
-
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
-        # fileName, _ = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", "","All Files (*);;Python Files (*.py)", options=options)
-        # fileName, _ = QFileDialog.getOpenFileName(
-        #     None, "QFileDialog.getOpenFileName()", "", "All Files (*);;Python Files (*.py)", options=options)
         fileName, _ = QFileDialog.getOpenFileName(
             None, "QFileDialog.getOpenFileName()", "", "Images (*.png *.xpm *.jpg )", options=options)
         if fileName:
-            # print(fileName)
-            # self.converRGB(fileName)
+
             G_image = fileName
             filename_with_exttention = os.path.basename(fileName)
             Global_image = cv2.imread(fileName)
@@ -394,8 +377,6 @@ class ImageLoading(QWidget):
             # hiding the image load button
             self.loadimage.hide()
             self.clearvalue.show()
-            # self.convert.clicked.connect(self.converRGB(fileName))
-            # pixmap_resized = self.imageLabel.scaled(720, 405, QtCore.Qt.KeepAspectRatio)
         else:
             self.imageLabel.setText("please selete image")
 
@@ -470,13 +451,10 @@ class ImageLoading(QWidget):
                 RGB_BGR.data, RGB_BGR.shape[1], RGB_BGR.shape[0], QtGui.QImage.Format_RGB888).rgbSwapped()
             self.imageLabel.setPixmap(QPixmap(image))
 
-            # cv2.imwrite(
-            #     "./Colored Images/Colored "+filename_with_exttention, RGB_BGR)
-            # saveImage = "./Colored Images/Colored "+filename_with_exttention
 
             cv2.imwrite(
                 "./src/cache/Colored "+filename_with_exttention, RGB_BGR)
-            # saveImage = "./src/cache/Colored "+filename_with_exttention
+
 
         except:
             msg = QMessageBox()
@@ -486,9 +464,7 @@ class ImageLoading(QWidget):
             msg.exec_()
 
     def saveFile(self):
-        # QFileDialog.saveFileContent (G_image[, fileNameHint=””])
         global G_image, filename_with_exttention, saveImage
-
         try:
             options = QFileDialog.Options()
             options |= QFileDialog.DontUseNativeDialog
@@ -497,16 +473,11 @@ class ImageLoading(QWidget):
             )
 
             if fileName:
-                # with open(fileName) as f:
-                # f.write(saveImage)
                 cv2.imwrite(fileName, saveImage)
                 msg = QMessageBox()
                 msg.setWindowTitle("Success")
                 msg.setText("Saved Image ..! ")
                 msg.exec_()
-            # cv2.imwrite(
-            #     "./Colored Images/Colored "+filename_with_exttention, saveImage)
-
         except:
             msg = QMessageBox()
             msg.setWindowTitle("Warning")
@@ -519,7 +490,6 @@ class BeautifyScreen(QWidget):
     def __init__(self):
         super(BeautifyScreen, self).__init__()
         loadUi("./src/ui/beautifyImage.ui", self)
-        # self.setGeometry (800,1200)
 
         self.blur.valueChanged.connect(self.sliderChanged)
         self.blur.sliderReleased.connect(self.sldReconnect)
@@ -576,11 +546,6 @@ class BeautifyScreen(QWidget):
         msgbox = QMessageBox()
         msgbox.setWindowTitle("Save The Changes ")
         msgbox.setText('Do You Want To Save The Changes ?')
-        # pixmapi = getattr(QStyle, "SP_DialogCancelButton")
-        # icon = self.style().standardIcon(pixmapi)
-        # self.pushButton_5.setIcon(icon)
-        # msgbox.addButton('Cancle', QMessageBox.NoRole)
-        # msgbox.addButton('Keep Chanages', QMessageBox.YesRole)
 
         msgbox.addButton('Cancel', QMessageBox.YesRole)
         msgbox.addButton(QMessageBox.Ok)
@@ -606,16 +571,11 @@ class BeautifyScreen(QWidget):
             # window.show()
             widget.addWidget(window)
             widget.setCurrentIndex(widget.currentIndex()+1)
-        # window = ImageLoading()
-        # # window.show()
-        # widget.addWidget(window)
-        # widget.setCurrentIndex(widget.currentIndex()+1)
+
 
     def clearSlidder(self):
-        # self.sender().valueChanged.disconnect()
         global Beautifed_image, local_beautification
         local_beautification = Beautifed_image
-
         if Beautifed_image is None:
             print("in if")
         else:
@@ -631,16 +591,12 @@ class BeautifyScreen(QWidget):
         self.sender().valueChanged.emit(self.sender().value())
         if (self.sender().objectName() == "blur"):
             self.emboss.setValue(1)
-
         elif(self.sender().objectName() == "emboss"):
             self.blur.setValue(1)
 
     def sliderChanged(self):
         global Global_image, Beautifed_image, local_beautification
-        # G_image = cv2.imread(G_image)
         print(self.sender().objectName() + " : " + str(self.sender().value()))
-        # self.textEdit.setText(self.sender().value())
-
         fileName1 = Beautifed_image
         if (self.sender().objectName() == "blur"):
             self.emboss.setValue(1)
