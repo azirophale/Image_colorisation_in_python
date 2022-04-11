@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1249</width>
+    <height>656</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="bgwidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1331</width>
+     <height>831</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget#bgwidget{
+background-color: qconicalgradient(cx:1, cy:1, angle:0, stop:0 rgba(31, 126, 90, 255), stop:0.835227 rgba(255, 255, 255, 255));}</string>
+   </property>
+   <widget class="QTableWidget" name="userDetails">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>120</y>
+      <width>751</width>
+      <height>461</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgba(0,0,0,0);
+font: 10pt &quot;MS Shell Dlg 2&quot;;
+border-radius:20px;
+border-style:outset;
+border-width:2px;
+border-color:black;
+font:bold 10;
+</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="clearCache">
+    <property name="geometry">
+     <rect>
+      <x>840</x>
+      <y>130</y>
+      <width>221</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>MS Shell Dlg 2</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+border-radius:20px;
+
+color:black;
+border-style:outset;
+border-width:2px;
+border-color:black;
+font:bold 14;
+padding:6px;
+font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>    Empty Cache</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../icon/delete.jpg</normaloff>../icon/delete.jpg</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="login_data">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>220</y>
+      <width>171</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+border-radius:20px;
+background-color: rgb(170, 255, 255);
+color:black;
+border-style:outset;
+border-width:2px;
+border-color:black;
+font:bold 14;
+padding:6px;
+font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Login Details</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1331</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 170, 255);</string>
+    </property>
+    <widget class="QLabel" name="adminName">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>10</y>
+       <width>181</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Shell Dlg 2</family>
+       <pointsize>12</pointsize>
+       <weight>1</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:rgba(0,0,0,0);
+font: 12pt &quot;MS Shell Dlg 2&quot;;
+border-radius:20px;
+border-style:outset;
+border-width:2px;
+border-color:black;
+font:bold 14;
+padding:6px;</string>
+     </property>
+     <property name="text">
+      <string>Admin Panel</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="homeButton">
+     <property name="geometry">
+      <rect>
+       <x>1000</x>
+       <y>10</y>
+       <width>171</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Shell Dlg 2</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;
+
+border-radius:20px;
+color:black;
+border-style:outset;
+border-width:2px;
+border-color:black;
+font:bold 14;
+padding:6px;
+font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
+     <property name="text">
+      <string>  Logout </string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../icon/logout.png</normaloff>../icon/logout.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>50</width>
+       <height>50</height>
+      </size>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="formatdata">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>430</y>
+      <width>171</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+border-radius:20px;
+background-color: rgb(170, 255, 255);
+color:black;
+border-style:outset;
+border-width:2px;
+border-color:black;
+font:bold 14;
+padding:6px;
+font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Format Data</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="user_data">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>330</y>
+      <width>171</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+border-radius:20px;
+background-color: rgb(170, 255, 255);
+color:black;
+border-style:outset;
+border-width:2px;
+border-color:black;
+font:bold 14;
+padding:6px;
+font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>User Data</string>
+    </property>
+   </widget>
+   <zorder>widget</zorder>
+   <zorder>userDetails</zorder>
+   <zorder>clearCache</zorder>
+   <zorder>login_data</zorder>
+   <zorder>formatdata</zorder>
+   <zorder>user_data</zorder>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
